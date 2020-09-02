@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+    hdfs:
+        image: harisekhon/hadoop
+        ports:
+            - 8020:8020
+    spark:
+        image: jupyter/pyspark-notebook
+        volumes:
+            - "./Spark:/home/jovyan/work:rw"
+        ports:
+            - 8888:8888
+    postgres:
+        image: stephandiegeilesau/my-postgres-image:1
+        ports:
+            - 5432:5432

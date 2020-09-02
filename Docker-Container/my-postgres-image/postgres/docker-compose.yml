@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+    hdfs:
+        image: harisekhon/hadoop
+        ports:
+            - 9000:9000
+            - 50070:50070
+            - 50075:50075
+    spark:
+        image: jupyter/pyspark-notebook
+        ports:
+            - 8888:8888
+            - 9005:9000
+    postgres:
+        image: stephandiegeilesau/my-postgres-image
+        ports:
+            - 5432:5432

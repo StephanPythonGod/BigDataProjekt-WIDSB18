@@ -1,0 +1,29 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "This is a heatmap",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "example",
+    "data",
+    "heatmap",
+    "weather",
+    "data"
+  ],
+  "author": "Peter Behrens",
+  "license": "MIT",
+  "dependencies": {
+    "console-log-html": "^2.0.2",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "heatmap.js": "^2.0.5",
+    "memjs": "^1.2.2",
+    "nedb": "^1.8.0",
+    "node-cache": "^5.1.2",
+    "pg": "^8.3.3"
+  },
+  "devDependencies": {}
+}
