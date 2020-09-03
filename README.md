@@ -49,15 +49,15 @@ Wie dem Docker-compose zu entnehmen ist, werden hier drei Docker-Container gesta
 
 Die Anwendung läuft in einem Kubernetes Cluster, welches aus vier .yaml Dateien aufgebaut werden kann. 
 
-Der [nodeFile.yaml](../Cluster/App-Umgebung/nodeFile.yaml) kann entnommen werden, das diese aus einem Service auf den Port 3000 und einem Deployment für den Docker-Container stephandiegeilesau/node-application:latest basiert. Für die Verbindung zu dem PostgreSQL Deployment wird die Umgebungsvariable POSTGRES_URL definiert.
+Der [nodeFile.yaml](./Cluster/App-Umgebung/nodeFile.yaml) kann entnommen werden, das diese aus einem Service auf den Port 3000 und einem Deployment für den Docker-Container stephandiegeilesau/node-application:latest basiert. Für die Verbindung zu dem PostgreSQL Deployment wird die Umgebungsvariable POSTGRES_URL definiert.
 
-Der [sql-database.yaml](../Cluster/App-Umgebung/sql-database.yaml) kann entnommen werden, das diese einen Service auf den Port 5432 und ein Deployment des Docker-Containers stephandiegeilesau/my-postgres-image:1 beinhaltet.
+Der [sql-database.yaml](./Cluster/App-Umgebung/sql-database.yaml) kann entnommen werden, das diese einen Service auf den Port 5432 und ein Deployment des Docker-Containers stephandiegeilesau/my-postgres-image:1 beinhaltet.
 
-Der [hpa.yaml](../Cluster/App-Umgebung/hpa.yaml) kann entnommen werden, dass der horizontal pod autoscaller auf das node-file deployment läuft. Hier werden bei einer CPU utilization von 50% ein neuer Pod gestartet.
+Der [hpa.yaml](./Cluster/App-Umgebung/hpa.yaml) kann entnommen werden, dass der horizontal pod autoscaller auf das node-file deployment läuft. Hier werden bei einer CPU utilization von 50% ein neuer Pod gestartet.
 
-Der [ingress.yaml](../Cluster/App-Umgebung/ingress.yaml) kann entnommen werden, dass der nginx ingress bei http requests auf ein node-file pod port 3000 verweist.
+Der [ingress.yaml](./Cluster/App-Umgebung/ingress.yaml) kann entnommen werden, dass der nginx ingress bei http requests auf ein node-file pod port 3000 verweist.
 
-Wenn wir in die Docker-Container gucken sehen wir in der [node-application/index.js](../Docker-Container/node-application/index.js) wie die asynchrone Abfrage der Datenbank über die Umgebungsvariable POSTGRES_URL funktioniert und wie der Cache implementiert wurde:
+Wenn wir in die Docker-Container gucken sehen wir in der [node-application/index.js](./Docker-Container/node-application/index.js) wie die asynchrone Abfrage der Datenbank über die Umgebungsvariable POSTGRES_URL funktioniert und wie der Cache implementiert wurde:
 
 ```
 try{
@@ -91,7 +91,7 @@ try{
 
 Der gecachte Wert wird 6000 Sekunden aufrecht erhalten.
 
-Wenn wir in die Docker-Container gucken sehen wir in der [my-postgres-image/init.sql](../Docker-Container/my-postgres-image/init.sql) wie das Datenbank Schema aufgesetzt wird und welche Testdaten eingetragen werde.
+Wenn wir in die Docker-Container gucken sehen wir in der [my-postgres-image/init.sql](./Docker-Container/my-postgres-image/init.sql) wie das Datenbank Schema aufgesetzt wird und welche Testdaten eingetragen werde.
 
 ## Dokumentation (Setup)
 Notwendige Installationen:
@@ -137,4 +137,4 @@ Die PostgreSQL Datenbank des Postgres-Container sollte jetzt mit den Daten befü
 
 ## Screencast
 
-[Link zum Screencast](../images/Screencast.mp4)
+[Link zum Screencast](./images/Screencast.mp4)
