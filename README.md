@@ -57,7 +57,7 @@ Der [hpa.yaml](./Cluster/App-Umgebung/hpa.yaml) kann entnommen werden, dass der 
 
 Der [ingress.yaml](./Cluster/App-Umgebung/ingress.yaml) kann entnommen werden, dass der nginx ingress bei http requests auf ein node-file pod port 3000 verweist.
 
-Wenn wir in die Docker-Container gucken sehen wir in der [node-application/index.js](./Docker-Container/node-application/index.js) wie die asynchrone Abfrage der Datenbank über die Umgebungsvariable POSTGRES_URL funktioniert und wie der Cache implementiert wurde:
+Wenn wir in die Docker-Container gucken sehen wir in der [node-application/index.js](./Docker-Container/node-application/nodejs/index.js) wie die asynchrone Abfrage der Datenbank über die Umgebungsvariable POSTGRES_URL funktioniert und wie der Cache implementiert wurde:
 
 ```
 try{
@@ -91,7 +91,7 @@ try{
 
 Der gecachte Wert wird 6000 Sekunden aufrecht erhalten.
 
-Wenn wir in die Docker-Container gucken sehen wir in der [my-postgres-image/init.sql](./Docker-Container/my-postgres-image/init.sql) wie das Datenbank Schema aufgesetzt wird und welche Testdaten eingetragen werde.
+Wenn wir in die Docker-Container gucken sehen wir in der [my-postgres-image/init.sql](./Docker-Container/my-postgres-image/postgres/init.sql) wie das Datenbank Schema aufgesetzt wird und welche Testdaten eingetragen werde.
 
 ## Dokumentation (Setup)
 Notwendige Installationen:
@@ -131,7 +131,7 @@ hdfs dfs -mkdir /data
 curl https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_confirmed_global.csv | hdfs dfs -put -f - /data/time_series_covid19_confirmed_global.csv
 hdfs dfs -chmod 777 /data
 ```
-Im Browser öffnet sich das Jupyter Notebook des Pyspark Containers automatisch. Hier im work Ordner das dortbefindliche FinalPySpark.ipynb ausführen.
+Im Browser öffnet sich das Jupyter Notebook des Pyspark Containers automatisch. Hier im work Ordner das dort befindliche FinalPySpark.ipynb ausführen.
 
 Die PostgreSQL Datenbank des Postgres-Container sollte jetzt mit den Daten befüllt worden sein.
 
